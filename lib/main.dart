@@ -1,4 +1,6 @@
 import 'package:basic_animations/sections/simple_section.dart';
+import 'package:basic_animations/sections/manual_section.dart';
+import 'package:basic_animations/sections/builder_section.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,9 +27,9 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                SimpleSection(imageUrls: characterImages['winnie']),
-                SimpleSection(imageUrls: characterImages['piglet']),
-                SimpleSection(imageUrls: characterImages['rabbit']),
+                ManualSection(imageUrls: characterImages['winnie']),
+                BuilderSection(imageUrls: characterImages['piglet']),
+                ContainerSection(imageUrls: characterImages['rabbit']),
                 SimpleSection(imageUrls: characterImages['eeyore']),
               ],
             ),

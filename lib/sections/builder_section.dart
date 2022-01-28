@@ -1,18 +1,18 @@
 import 'package:basic_animations/gallery_screen.dart';
 import 'package:flutter/material.dart';
 
-class ManualSection extends StatefulWidget {
+class BuilderSection extends StatefulWidget {
   final List<String>? imageUrls;
 
-  ManualSection({
+  BuilderSection({
     required this.imageUrls,
   });
 
   @override
-  State<ManualSection> createState() => _ManualSectionState();
+  State<BuilderSection> createState() => _BuilderSectionState();
 }
 
-class _ManualSectionState extends State<ManualSection> with SingleTickerProviderStateMixin{
+class _BuilderSectionState extends State<BuilderSection> with SingleTickerProviderStateMixin{
   bool show = false;
 
   late AnimationController _controller;
@@ -62,9 +62,6 @@ class _ManualSectionState extends State<ManualSection> with SingleTickerProvider
                       _controller.reverse();
                       show = false;
                     }
-                    /*setState(() {
-                      show = !show;
-                    });*/
                   },
                   child: Text(show ? 'Hide Guest' : 'Show Guest'),
                 ),
@@ -81,11 +78,17 @@ class _ManualSectionState extends State<ManualSection> with SingleTickerProvider
                 ),
               ],
             ),
-            SizedBox(
-              height: _heightAnimation.value,
-              width: 150,
+            AnimatedBuilder(
+              animation: _heightAnimation,
               child: Image.network(widget.imageUrls![0]),
-            ),
+              builder: (context, child) {
+                return SizedBox(
+                  height: _heightAnimation.value,
+                  width: 150,
+                  child: child
+                );
+              }
+            )
           ],
         ),
       ),

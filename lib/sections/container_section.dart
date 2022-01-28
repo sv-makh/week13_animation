@@ -1,18 +1,18 @@
 import 'package:basic_animations/gallery_screen.dart';
 import 'package:flutter/material.dart';
 
-class ManualSection extends StatefulWidget {
+class ContainerSection extends StatefulWidget {
   final List<String>? imageUrls;
 
-  ManualSection({
+  ContainerSection({
     required this.imageUrls,
   });
 
   @override
-  State<ManualSection> createState() => _ManualSectionState();
+  State<ContainerSection> createState() => _ContainerSectionState();
 }
 
-class _ManualSectionState extends State<ManualSection> with SingleTickerProviderStateMixin{
+class _ContainerSectionState extends State<ContainerSection> with SingleTickerProviderStateMixin{
   bool show = false;
 
   late AnimationController _controller;
@@ -81,9 +81,11 @@ class _ManualSectionState extends State<ManualSection> with SingleTickerProvider
                 ),
               ],
             ),
-            SizedBox(
-              height: _heightAnimation.value,
+            AnimatedContainer(
+              height: show ? 150 : 0,
               width: 150,
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeIn,
               child: Image.network(widget.imageUrls![0]),
             ),
           ],
