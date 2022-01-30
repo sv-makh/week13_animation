@@ -24,7 +24,10 @@ class GalleryScreen extends StatelessWidget {
               (index) => Card(
                 child: SizedBox(
                   height: 200,
-                  child: Image.network(imageUrls![index]),
+                  child: FadeInImage(
+                    placeholder: AssetImage('images/3066814584_0d0db6817c.jpg'),
+                    image: NetworkImage(imageUrls![index]),
+                  )
                 ),
               ),
             ),

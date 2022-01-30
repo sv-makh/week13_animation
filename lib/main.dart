@@ -1,3 +1,4 @@
+import 'package:basic_animations/sections/container_section.dart';
 import 'package:basic_animations/sections/simple_section.dart';
 import 'package:basic_animations/sections/manual_section.dart';
 import 'package:basic_animations/sections/builder_section.dart';
